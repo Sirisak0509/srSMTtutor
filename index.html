@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รวมคลิปติวโครงการทุนปั้นหมอสำหรับ SMT - โรงเรียนสหราษฎร์รังสฤษดิ์</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .login-box {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-box h1 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .login-box h2 {
+            color: #718096;
+            margin-bottom: 35px;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .warning-box h3 {
+            color: #e65100;
+            margin-bottom: 12px;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .warning-box p {
+            color: #e65100;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .login-btn:hover {
+            opacity: 0.9;
+        }
+
+        .error-message {
+            color: #e53e3e;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        /* Header Navigation */
+        .top-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .logo-section p {
+            font-size: 14px;
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+
+        .header-info {
+            text-align: right;
+        }
+
+        .header-info p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .main-container {
+            display: none;
+            background: #f5f7fa;
+        }
+
+        .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #718096;
+            font-weight: 400;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(900px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .video-wrapper {
+            flex: 0 0 400px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        .video-placeholder {
+            color: white;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .video-placeholder h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .video-placeholder p {
+            opacity: 0.9;
+            font-weight: 300;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .card-info {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .subject-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .card-info h3 {
+            color: #2d3748;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #666;
+            font-size: 15px;
+        }
+
+        .info-row svg {
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .download-btn:hover {
+            background: #059669;
+        }
+
+        .download-btn.disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .download-btn.disabled:hover {
+            background: #94a3b8;
+        }
+
+        .download-btn svg {
+            margin-right: 8px;
+        }
+
+        @media (max-width: 968px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-content {
+                flex-direction: column;
+            }
+
+            .video-wrapper {
+                flex: 1;
+                width: 100%;
+            }
+
+            .video-wrapper iframe {
+                height: 250px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .login-box {
+                padding: 35px 25px;
+            }
+
+            .login-box h1 {
+                font-size: 28px;
+            }
+
+            .card-info {
+                padding: 25px;
+            }
+
+            .card-info h3 {
+                font-size: 20px;
+            }
+
+            .top-header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-info {
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .logo-section p {
+                margin-bottom: 0;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-box">
+            <h1>🎓 รวมคลิปติวโครงการทุนปั้นหมอสำหรับห้องเรียนพิเศษSMT</h1>
+            <h2>โรงเรียนสหราษฎร์รังสฤษดิ์</h2>
+            
+            <div class="warning-box">
+                <h3>⚠️ ข้อกำหนดการใช้งาน</h3>
+                <p>
+                    เว็บไซต์นี้สงวนสิทธิ์สำหรับนักเรียนโรงเรียนสหราษฎร์รังสฤษดิ์เท่านั้น 
+                    ห้ามเผยแพร่หรือส่งต่อเนื้อหาภายในให้บุคคลอื่นโดยเด็ดขาด
+                </p>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="passwordInput" placeholder="กรุณากรอกรหัสผ่าน" />
+            </div>
+            
+            <button class="login-btn" onclick="checkPassword()">เข้าสู่ระบบ</button>
+            
+            <div class="error-message" id="errorMessage"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container" id="mainContainer">
+        <!-- Top Header -->
+        <div class="top-header">
+            <div class="top-header-content">
+                <div class="logo-section">
+                    <h2>🎓 รวมคลิปติวโครงการทุนปั้นหมอสำหรับห้องเรียนพิเศษ SMT</h2>
+                    <p>โรงเรียนสหราษฎร์รังสฤษดิ์</p>
+                </div>
+                <div class="header-info">
+                    <p>ห้องเรียนพิเศษวิทยาศาสตร์-คณิตศาสตร์-เทคโนโลยี</p>
+                    <p>ปีการศึกษา 2568</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-wrapper">
+            <div class="header">
+                <h1>📚 คลิปติวย้อนหลัง</h1>
+                <p>รวมคลิปติวทุกวิชา สำหรับนักเรียนห้องเรียนพิเศษ SMT</p>
+            </div>
+
+            <div class="video-grid" id="videoGrid"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>เกี่ยวกับไซต์</h3>
+                    <p>เว็บไซต์รวมคลิปติวสำหรับนักเรียนห้องเรียนพิเศษ SMT โรงเรียนสหราษฎร์รังสฤษดิ์ เพื่อการเรียนรู้และทบทวนบทเรียน</p>
+                </div>
+                <div class="footer-section">
+                    <h3>ติดต่อเรา</h3>
+                    <ul>
+                        <li>📍 โรงเรียนสหราษฎร์รังสฤษดิ์</li>
+                        <li>📞 โทร: 093-3281575 (ครูศิริศักดิ์)</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>ข้อกำหนด</h3>
+                    <p>เนื้อหาทั้งหมดในเว็บไซต์นี้สงวนสิทธิ์สำหรับนักเรียนโรงเรียนสหราษฎร์รังสฤษดิ์เท่านั้น ห้ามเผยแพร่หรือทำซ้ำโดยไม่ได้รับอนุญาต</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2568 โรงเรียนสหราษฎร์รังสฤษดิ์ - ห้องเรียนพิเศษ SMT | สงวนลิขสิทธิ์</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = "19378246";
+        
+        const videos = [
+            {
+                subject: "คณิตศาสตร์",
+                date: "4/11/2568",
+                iframe: '<iframe src="https://1drv.ms/v/c/7ec3ab86519bf6da/IQQG7IFrKblQQ5F0BoWqSDLkAQQ-N8-6hHwLicdrW16SbQI" width="100%" height="300" frameborder="0" scrolling="no" allowfullscreen></iframe>',
+                instructor: "พี่เบ๊นซ์",
+                hasDoc: false
+            },
+            {
+                subject: "ภาษาอังกฤษ",
+                date: "6/11/2568",
+                iframe: '<iframe src="https://1drv.ms/v/c/7ec3ab86519bf6da/IQRwgJfky0NMQ5sqbtqqyw3eAe65o2KFSMx_ohqY64V_z7E" width="100%" height="300" frameborder="0" scrolling="no" allowfullscreen></iframe>',
+                instructor: "พี่ดรีม",
+                hasDoc: false
+            },
+            {
+                subject: "TPAT3",
+                date: "11/11/2568",
+                iframe: '<iframe src="https://1drv.ms/v/c/7ec3ab86519bf6da/IQS-0Q0KDE6kQJJtutVDgmz-ARnRsn-xH32FpJ-IvHdZp5c" width="100%" height="300" frameborder="0" scrolling="no" allowfullscreen></iframe>',
+                instructor: "พี่ฟิซโซ่",
+                hasDoc: false
+            },
+            {
+                subject: "TGAT2",
+                date: "13/11/2568",
+                iframe: '<iframe src="https://1drv.ms/v/c/7ec3ab86519bf6da/IQR5pjk_6-7qTInKGr5tI2x6AaUU3W6aIDt-XlvZtq_6pTM" width="100%" height="300" frameborder="0" scrolling="no" allowfullscreen></iframe>',
+                instructor: "พี่เน็ก",
+                hasDoc: false
+            },
+            {
+                subject: "TPAT2",
+                date: "18/11/2568",
+                iframe: '<iframe src="https://1drv.ms/v/c/7ec3ab86519bf6da/IQT78kdDtlbHSKGUMCMlUhRHAdpYtSqlMCkfzLsVIXsNU8U" width="100%" height="300" frameborder="0" scrolling="no" allowfullscreen></iframe>',
+                instructor: "พี่ฟิซโซ่",
+                hasDoc: false
+            },
+            {
+                subject: "TPAT1",
+                date: "20/11/2568",
+                iframe: '<iframe src="https://1drv.ms/v/c/7ec3ab86519bf6da/IQQRO9v_rJDKSKZSPSgPceu3Ad6AKSgJTBTgohEiAE8EcqE" width="100%" height="300" frameborder="0" scrolling="no" allowfullscreen></iframe>',
+                instructor: "พี่เน็ก",
+                hasDoc: false
+            },
+            {
+                subject: "ฟิสิกส์",
+                date: "20/11/2568",
+                iframe: null,
+                instructor: "พี่ฟิซโซ่",
+                hasDoc: false
+            },
+            {
+                subject: "TPAT3",
+                date: "25/11/2568",
+                iframe: '<iframe src="https://1drv.ms/v/c/7ec3ab86519bf6da/IQTVahLbavwcT5LC31j_C9l_AS3NPl12AlHWKYZmMCs67uw" width="100%" height="300" frameborder="0" scrolling="no" allowfullscreen></iframe>',
+                instructor: "พี่ฟิซโซ่",
+                hasDoc: false
+            },
+            {
+                subject: "TPAT3",
+                date: "2/12/2568",
+                iframe: '<iframe src="https://onedrive.live.com/personal/7ec3ab86519bf6da/_layouts/15/embed.aspx?UniqueId=6f240052-c0ff-41e0-afdd-1ed2891c4af9&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="100%" height="300" frameborder="0" scrolling="no" allowfullscreen title="2-12-68.mp4"></iframe>',
+                instructor: "พี่ฟิซโซ่",
+                hasDoc: false
+            },
+            {
+                subject: "TGAT",
+                date: "2/12/2568",
+                iframe: null,
+                instructor: "พี่เน็ก",
+                hasDoc: false
+            },
+            {
+                subject: "ชีววิทยา",
+                date: "9/12/2568",
+                iframe: null,
+                instructor: "อ.ศุภกร",
+                hasDoc: false
+            },
+            {
+                subject: "TPAT3",
+                date: "9/12/2568",
+                iframe: null,
+                instructor: "พี่ฟิซโซ่",
+                hasDoc: false
+            },
+            {
+                subject: "ภาษาอังกฤษ (ศิลป์)",
+                date: "9/12/2568",
+                iframe: null,
+                instructor: "พี่ดรีม",
+                hasDoc: false
+            },
+            {
+                subject: "ภาษาอังกฤษ",
+                date: "11/12/2568",
+                iframe: null,
+                instructor: "พี่ดรีม",
+                hasDoc: false
+            },
+            {
+                subject: "ภาษาไทย",
+                date: "16/12/2568",
+                iframe: null,
+                instructor: "พี่บอส",
+                hasDoc: false
+            },
+            {
+                subject: "ชีววิทยา",
+                date: "18/12/2568",
+                iframe: null,
+                instructor: "อ.ศุภกร",
+                hasDoc: false
+            },
+            {
+                subject: "ฟิสิกส์",
+                date: "18/12/2568",
+                iframe: null,
+                instructor: "พี่ฟิซโซ่",
+                hasDoc: false
+            },
+            {
+                subject: "ชีววิทยา",
+                date: "23/12/2568",
+                iframe: null,
+                instructor: "อ.ศุภกร",
+                hasDoc: false
+            },
+            {
+                subject: "เคมี",
+                date: "23/12/2568",
+                iframe: null,
+                instructor: "พี่สโนว์",
+                hasDoc: false
+            },
+            {
+                subject: "ชีววิทยา",
+                date: "25/12/2568",
+                iframe: null,
+                instructor: "อ.ศุภกร",
+                hasDoc: false
+            },
+            {
+                subject: "ฟิสิกส์",
+                date: "25/12/2568",
+                iframe: null,
+                instructor: "พี่ฟิซโซ่",
+                hasDoc: false
+            },
+            {
+                subject: "ภาษาไทย",
+                date: "25/12/2568",
+                iframe: null,
+                instructor: "พี่บอส",
+                hasDoc: false
+            }
+        ];
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const errorMsg = document.getElementById('errorMessage');
+
+            if (input === correctPassword) {
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('mainContainer').style.display = 'block';
+                renderVideos();
+            } else {
+                errorMsg.textContent = '❌ รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง';
+            }
+        }
+
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function renderVideos() {
+            const grid = document.getElementById('videoGrid');
+            
+            videos.forEach((video, index) => {
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                
+                const videoContent = video.iframe 
+                    ? video.iframe 
+                    : '<div class="video-placeholder"><h3>📹 รออัพเดท</h3><p>วีดีโอกำลังอยู่ระหว่างการอัพโหลด</p></div>';
+
+                card.innerHTML = `
+                    <div class="card-content">
+                        <div class="video-wrapper">
+                            ${videoContent}
+                        </div>
+                        <div class="card-info">
+                            <div>
+                                <span class="subject-tag">${video.subject}</span>
+                                <h3>คลิปติว ${video.subject}</h3>
+                                
+                                <div class="info-row">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/>
+                                    </svg>
+                                    <span>วิทยากรโดย${video.instructor}</span>
+                                </div>
+                                
+                                <div class="info-row">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>วันที่อัดคลิป: ${video.date}</span>
+                                </div>
+                            </div>
+                            
+                            <a href="#" class="download-btn ${!video.hasDoc ? 'disabled' : ''}" onclick="return false;">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                </svg>
+                                ${video.hasDoc ? 'ดาวน์โหลดเอกสาร' : 'ยังไม่มีเอกสาร'}
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
